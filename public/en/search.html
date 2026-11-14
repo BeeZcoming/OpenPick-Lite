@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Search · OpenPick</title><link rel="canonical" href="https://YOUR_DOMAIN/en/search.html"><meta name="description" content="Open-source projects, collected daily and reviewed by humans."><style>*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f8fc;--bg2:#eef0fa;--card:#fff;--line:#e6e8f1;--text:#171a2b;--muted:#6b7280;--brand:#5b5bd6;--brand2:#a855f7;--soft:#eeeefe;--ok:#128a4c;--warn:#b7791f;--radius:16px;--shadow:0 1px 2px rgba(24,28,60,.04),0 10px 30px rgba(24,28,60,.07);--shadow-h:0 4px 12px rgba(24,28,60,.07),0 18px 44px rgba(24,28,60,.10)}
+html[data-theme=dark]{--bg:#0b0e16;--bg2:#111527;--card:#151a27;--line:#2a3142;--text:#e9edf7;--muted:#98a1b5;--soft:#252a44;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.28);--shadow-h:0 4px 12px rgba(0,0,0,.35),0 18px 44px rgba(0,0,0,.4)}
+html{-webkit-text-size-adjust:100%}
+body{font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);letter-spacing:.01em}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1160px;margin:auto;padding:0 24px}
+/* 顶栏：毛玻璃 */
+header{background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.hd{height:64px;display:flex;align-items:center;gap:22px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--text);letter-spacing:-.4px}
+.logo:hover{text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#a855f7);display:grid;place-items:center;color:#fff;font-style:normal;font-size:16px;box-shadow:0 4px 12px rgba(99,102,241,.35)}
+nav{display:flex;gap:20px;flex:1}nav a{color:var(--muted);font-size:13.5px;font-weight:550;position:relative;padding:4px 0}
+nav a:hover{color:var(--brand);text-decoration:none}
+.hd-r{display:flex;gap:8px;align-items:center}
+#themeBtn{min-width:38px;justify-content:center}
+.btn,.lnk{border:1px solid var(--line);background:var(--card);color:var(--text);padding:7px 13px;border-radius:10px;font-size:13px;font-weight:550;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.16s}
+.btn:hover,.lnk:hover{border-color:var(--brand);color:var(--brand);text-decoration:none;transform:translateY(-1px)}
+.btn-p{background:linear-gradient(135deg,#6366f1,#7c5cf0);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(99,102,241,.28)}
+.btn-p:hover{color:#fff;filter:brightness(1.07)}
+.srch{position:relative}.srch input{width:220px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:13px;transition:.16s}
+.srch input:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--soft);background:var(--card)}
+.srch .pop{display:none;position:absolute;top:42px;right:0;width:350px;max-height:390px;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-h);padding:6px;z-index:30}
+.srch .pop.on{display:block}.srch .pop a{display:block;padding:9px 11px;border-radius:9px;color:var(--text)}.srch .pop a:hover{background:var(--soft);text-decoration:none}
+.srch .pop b{font-size:13px}.srch .pop span{display:block;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Hero */
+.hero{position:relative;padding:48px 0 26px}
+.hero:before{content:"";position:absolute;left:-90px;top:-70px;width:520px;height:300px;pointer-events:none;z-index:-1;
+ background:radial-gradient(ellipse at center,rgba(99,102,241,.13),rgba(168,85,247,.07) 45%,transparent 72%)}
+.hero h1{font-size:36px;line-height:1.25;letter-spacing:-1.2px;font-weight:820;background:linear-gradient(100deg,var(--text) 30%,#5b5bd6 78%,#a855f7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+html[data-theme=dark] .hero h1{background:linear-gradient(100deg,#fff 25%,#a5a8ff 78%,#d8a8ff);-webkit-background-clip:text;background-clip:text}
+.hero p{color:var(--muted);margin-top:10px;font-size:14.5px}
+.stats{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.stats>div{min-width:118px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);font-size:12px;color:var(--muted)}
+.stats b{display:block;font-size:23px;line-height:1.25;color:var(--text);font-weight:780;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+/* 布局 */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:24px;padding-bottom:56px;align-items:start}
+@media(max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}nav{display:none}}
+.grid{display:grid;gap:14px;min-width:0}
+.grid.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.grid.g2{grid-template-columns:minmax(0,1fr)}}
+/* 卡片 */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:.18s;min-width:0;overflow-wrap:anywhere}
+.card:hover{border-color:color-mix(in srgb,var(--brand) 45%,var(--line));box-shadow:var(--shadow-h);transform:translateY(-2px)}
+.card h3{font-size:16.5px;font-weight:720;letter-spacing:-.2px}.card h3 a{color:var(--text)}.card h3 a:hover{color:var(--brand)}
+.card p{color:var(--muted);font-size:13px;margin:8px 0}
+.card .note{display:block;border-left:3px solid var(--brand);background:linear-gradient(90deg,var(--soft),transparent);padding:7px 11px;border-radius:0 8px 8px 0;color:var(--text);font-size:13px;font-weight:600;margin:9px 0}
+.meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+.meta .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}
+.tg{display:inline-block;background:var(--soft);color:var(--brand);border-radius:6px;padding:2px 8px;font-size:11px;font-style:normal;font-weight:600;margin:0 5px 5px 0}
+.pill{display:inline-flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:650;color:var(--muted)}
+.pill.star{color:var(--warn);background:color-mix(in srgb,#f59e0b 10%,var(--card));border-color:color-mix(in srgb,#f59e0b 25%,var(--line))}
+/* 侧栏 */
+aside{position:sticky;top:84px;min-width:0}
+.side-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 17px;margin-bottom:14px;box-shadow:var(--shadow)}
+.side-box h4{font-size:13px;font-weight:720;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.side-box h4:before{content:"";width:3px;height:14px;border-radius:2px;background:linear-gradient(var(--brand),var(--brand2))}
+.side-box a{display:block;font-size:12.5px;padding:6px 0;color:var(--muted);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.side-box a:last-child{border-bottom:0}.side-box a:hover{color:var(--brand);text-decoration:none}
+.side-box a span{float:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.toc a{display:block;font-size:12.5px;color:var(--muted);padding:4px 0 4px 10px;border-left:2px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc a:hover,.toc a.on{border-left-color:var(--brand);color:var(--brand);text-decoration:none}
+.toc a.lv3{padding-left:22px;font-size:12px}
+/* Tab / 榜单 */
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}.tabs button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 14px;font-size:13px;font-weight:550;cursor:pointer;color:var(--muted);transition:.16s}
+.tabs button:hover{border-color:var(--brand);color:var(--brand)}.tabs button.on{background:linear-gradient(135deg,#6366f1,#7c5cf0);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(99,102,241,.25)}
+.rank-row{display:flex;align-items:center;gap:15px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 16px;margin-bottom:9px;box-shadow:var(--shadow);transition:.16s;min-width:0}
+.rank-row:hover{border-color:var(--brand);transform:translateX(2px)}
+.rank-row .no{width:30px;flex:none;text-align:center;font-weight:800;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank-row .no.g{color:#fff;background:linear-gradient(135deg,#f5b942,#e0951a);border-radius:8px;padding:2px 0}
+.rank-row .no.s{color:#fff;background:linear-gradient(135deg,#9aa6b8,#78859a);border-radius:8px;padding:2px 0}
+.rank-row .no.b{color:#fff;background:linear-gradient(135deg,#cd8b5b,#a96a3c);border-radius:8px;padding:2px 0}
+.rank-row .bd{flex:1;min-width:0}.rank-row .bd b{font-size:14px}.rank-row .bd span{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-row .st{flex:none;font-size:12.5px;font-weight:700;color:var(--warn)}
+/* 广告 */
+.ad{background:linear-gradient(135deg,color-mix(in srgb,var(--soft) 55%,var(--card)),var(--card));border:1px dashed color-mix(in srgb,var(--brand) 28%,var(--line));border-radius:var(--radius);padding:14px 17px;margin:14px 0}
+.ad[hidden]{display:none}.ad-hd span{font-size:10.5px;letter-spacing:.6px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+.ad-v[hidden]{display:none}.ad-v h4{font-size:14px;margin:8px 0 3px;font-weight:700}.ad-v p{font-size:12.5px;color:var(--muted)}.ad-cta{display:inline-block;margin-top:8px;font-size:12px;font-weight:700}
+/* README 排版 */
+.rm-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;padding:13px 20px;border-bottom:0;margin-top:0}
+.rm-bar b{font-size:14px;font-weight:720;display:flex;align-items:center;gap:8px}
+.rm-bar b:before{content:"";width:3px;height:15px;border-radius:2px;background:linear-gradient(var(--brand),var(--brand2))}
+.md{background:var(--card);border:1px solid var(--line);border-radius:0 0 var(--radius) var(--radius);padding:26px 30px;box-shadow:var(--shadow);line-height:1.85;overflow-wrap:anywhere;word-break:break-word;font-size:14px}
+.md-clip .md{border-top:0}
+.md h1,.md h2,.md h3,.md h4{margin:24px 0 12px;line-height:1.35;font-weight:750;letter-spacing:-.3px;scroll-margin-top:80px}
+.md h1{font-size:27px;margin-top:4px}.md h1:first-child{margin-top:0}
+.md h2{font-size:21px;border-bottom:1px solid var(--line);padding-bottom:9px;margin-top:30px}
+.md h3{font-size:17px}.md h4{font-size:15px}
+.md>p:first-child{margin-top:0}
+.md p{margin:11px 0}.md ul,.md ol{padding-left:24px;margin:11px 0}.md li{margin:4px 0}
+.md a{text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--brand) 35%,transparent);text-underline-offset:2px}
+.md code{background:var(--bg2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.md pre{background:#111626;color:#e6edf7;border:1px solid #232a3d;border-radius:11px;padding:15px 17px;overflow:auto;margin:14px 0;line-height:1.6}
+html[data-theme=light] .md pre{background:#12162a}
+.md pre code{border:0;background:none;padding:0;color:inherit;font-size:12.5px}
+.md img{max-width:100%;height:auto;border-radius:10px;margin:8px 0}
+.md blockquote{border-left:3px solid var(--brand);background:var(--soft);padding:9px 15px;border-radius:0 9px 9px 0;color:var(--muted);margin:13px 0}
+.md hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+.md table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;white-space:nowrap}
+.md th{background:var(--bg2);font-weight:700}
+.md tr:nth-child(even) td{background:color-mix(in srgb,var(--bg2) 45%,var(--card))}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}.seg button{border:0;background:var(--card);padding:5px 12px;font-size:12.5px;cursor:pointer;color:var(--muted);font-weight:600}.seg button.on{background:var(--brand);color:#fff}
+/* 长文折叠 */
+.md-clip{position:relative;margin-top:0}
+.md-clip.collapsed>.md{max-height:760px;overflow:hidden}
+.md-clip.collapsed:after{content:"";position:absolute;left:1px;right:1px;bottom:38px;height:120px;pointer-events:none;background:linear-gradient(transparent,var(--card))}
+.rm-more{display:flex;justify-content:center;border:1px solid var(--line);border-top:0;border-radius:0 0 var(--radius) var(--radius);background:var(--card);padding:11px;position:relative;z-index:2}
+.rm-more button{border:0;background:var(--soft);color:var(--brand);font-weight:700;font-size:12.5px;padding:7px 18px;border-radius:9px;cursor:pointer}
+/* 下载 / 评论区 */
+.proxy-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 16px;padding:10px 13px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.proxy-bar label{font-size:12.5px;font-weight:700}
+.proxy-bar select{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit;font-size:12.5px}
+.proxy-bar .hint{font-size:11.5px;color:var(--muted);margin:0}
+.md-img{max-width:100%;height:auto}
+.asset{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:11px;padding:12px 15px;margin:9px 0;background:var(--bg)}.asset .f{flex:1;min-width:0;font-size:13px;font-weight:600;overflow-wrap:anywhere}.asset .f small{display:block;color:var(--muted);font-weight:400}
+.comm{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.comm h2{font-size:16px;font-weight:720}.comm-hint{font-size:12.5px;color:var(--muted);margin:6px 0 13px}
+/* 表单 / 页脚 */
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);max-width:620px}
+.form label{display:block;font-size:13px;font-weight:680;margin:16px 0 7px}.form label b{color:var(--warn)}
+.form input,.form textarea,.form select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:inherit;font-size:13.5px;transition:.16s}
+.form input:focus,.form textarea:focus,.form select:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--soft);background:var(--card)}
+.form textarea{min-height:110px;resize:vertical}.form .hint{font-size:11.5px;color:var(--muted);margin-top:5px}
+.form .acts{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}.form .msg{margin-top:14px;font-size:13px}
+footer{border-top:1px solid var(--line);background:var(--card);padding:24px 0;margin-top:20px;font-size:12.5px;color:var(--muted)}
+footer .r{float:right;display:flex;gap:16px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:9px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:640px){.hero h1{font-size:27px}.srch input{width:138px}.srch .pop{width:290px}.wrap{padding:0 16px}.md{padding:18px}.md h1{font-size:22px}.md h2{font-size:18px}footer .r{float:none;margin-top:8px}}
+#waline{margin-top:14px}
+html[data-theme=dark]{--waline-bg-color:#151a27;--waline-text-color:#e9edf7;--waline-border-color:#2a3142;--waline-primary-color:#8b8bf0;--waline-bg-color-light:#1c2333}</style></head><body><header><div class="wrap hd"><a class="logo" href="index.html"><i>✦</i>OpenPick</a><nav><a href="index.html">Discover</a><a href="ranking.html">Rankings</a><a href="search.html">Search</a><a href="submit.html">Submit</a></nav><div class="hd-r"><div class="srch"><input type="text" placeholder="Search projects / topics…" autocomplete="off"><div class="pop"></div></div><a class="lnk" href="../zh/search.html">中文</a><button class="btn" id="themeBtn">☾</button></div></div></header><main class="wrap"><section class="hero"><h1>Search</h1><p>Substring, prefix, multi-word — index is inlined and works offline.</p></section><div class="cols"><div><div class="srch" style="margin-bottom:14px"><input id="bigSearch" type="text" placeholder="Search projects / topics…" style="width:100%"><div class="pop" style="left:0;right:0;width:auto"></div></div><div class="grid" id="cards"><div data-name="facebook/react a javascript library for building user interfaces javascript ui frontend"><article class="card"><h3><a href="p-gh-facebook-react.html">facebook/react</a></h3><span class="note">The library that made component-based UI the default.</span><p>A JavaScript library for building user interfaces</p><div><i class="tg">#javascript</i><i class="tg">#ui</i><i class="tg">#frontend</i></div><div class="meta"><span class="pill star">★ 182.0k</span><span><i class="dot" style="background:#f1e05a"></i>JavaScript</span><span>Updated 2026-11-14</span></div></article></div><div data-name="astral-sh/uv an extremely fast python package installer and resolver python packaging rust"><article class="card"><h3><a href="p-gh-astral-sh-uv.html">astral-sh/uv</a></h3><span class="note">Python packaging at Rust speed — a near drop-in pip replacement.</span><p>An extremely fast Python package installer and resolver</p><div><i class="tg">#python</i><i class="tg">#packaging</i><i class="tg">#rust</i></div><div class="meta"><span class="pill star">★ 42.0k</span><span><i class="dot" style="background:#dea584"></i>Rust</span><span>Updated 2026-11-13</span></div></article></div><div data-name="cli/cli github’s official command line tool cli github go"><article class="card"><h3><a href="p-gh-cli-cli.html">cli/cli</a></h3><span class="note">Issues, PRs and releases without leaving the terminal.</span><p>GitHub’s official command line tool</p><div><i class="tg">#cli</i><i class="tg">#github</i><i class="tg">#go</i></div><div class="meta"><span class="pill star">★ 38.0k</span><span><i class="dot" style="background:#00add8"></i>Go</span><span>Updated 2026-11-12</span></div></article></div><div data-name="vinta/awesome-python a curated list of awesome python frameworks, libraries and software python awesome list"><article class="card"><h3><a href="p-gh-vinta-awesome-python.html">vinta/awesome-python</a></h3><span class="note">The most complete index of the Python ecosystem.</span><p>A curated list of awesome Python frameworks, libraries and software</p><div><i class="tg">#python</i><i class="tg">#awesome</i><i class="tg">#list</i></div><div class="meta"><span class="pill star">★ 140.0k</span><span><i class="dot" style="background:#3572A5"></i>Python</span><span>Updated 2026-11-11</span></div></article></div><div data-name="rust-unofficial/awesome-rust a curated list of rust code and resources rust awesome list"><article class="card"><h3><a href="p-gh-rust-unofficial-awesome-rust.html">rust-unofficial/awesome-rust</a></h3><span class="note">The go-to list for Rust crates and learning resources.</span><p>A curated list of Rust code and resources</p><div><i class="tg">#rust</i><i class="tg">#awesome</i><i class="tg">#list</i></div><div class="meta"><span class="pill star">★ 52.0k</span><span><i class="dot" style="background:#dea584"></i>Rust</span><span>Updated 2026-11-10</span></div></article></div><div data-name="shadcn-ui/ui beautifully designed components built with radix ui and tailwind css react tailwind ui"><article class="card"><h3><a href="p-gh-shadcn-ui-ui.html">shadcn-ui/ui</a></h3><span class="note">Copy-paste component source you actually own.</span><p>Beautifully designed components built with Radix UI and Tailwind CSS</p><div><i class="tg">#react</i><i class="tg">#tailwind</i><i class="tg">#ui</i></div><div class="meta"><span class="pill star">★ 78.0k</span><span><i class="dot" style="background:#3178c6"></i>TypeScript</span><span>Updated 2026-11-09</span></div></article></div><div data-name="burntsushi/ripgrep recursively searches directories for a regex pattern rust cli search"><article class="card"><h3><a href="p-gh-burntsushi-ripgrep.html">BurntSushi/ripgrep</a></h3><span class="note">A grep replacement fast enough to change your habits.</span><p>recursively searches directories for a regex pattern</p><div><i class="tg">#rust</i><i class="tg">#cli</i><i class="tg">#search</i></div><div class="meta"><span class="pill star">★ 51.0k</span><span><i class="dot" style="background:#dea584"></i>Rust</span><span>Updated 2026-11-08</span></div></article></div><div data-name="huggingface/transformers state-of-the-art machine learning for pytorch, tensorflow and jax nlp transformers ai"><article class="card"><h3><a href="p-gh-huggingface-transformers.html">huggingface/transformers</a></h3><span class="note">The default entry point for nearly every open model.</span><p>State-of-the-art Machine Learning for PyTorch, TensorFlow and JAX</p><div><i class="tg">#nlp</i><i class="tg">#transformers</i><i class="tg">#ai</i></div><div class="meta"><span class="pill star">★ 145.0k</span><span><i class="dot" style="background:#3572A5"></i>Python</span><span>Updated 2026-11-14</span></div></article></div><div data-name="biomejs/biome a toolchain for web projects, aimed to provide functionalities to maintain them javascript linter formatter"><article class="card"><h3><a href="p-gh-biomejs-biome.html">biomejs/biome</a></h3><span class="note">One binary replacing both ESLint and Prettier.</span><p>A toolchain for web projects, aimed to provide functionalities to maintain them</p><div><i class="tg">#javascript</i><i class="tg">#linter</i><i class="tg">#formatter</i></div><div class="meta"><span class="pill star">★ 18.0k</span><span><i class="dot" style="background:#dea584"></i>Rust</span><span>Updated 2026-11-13</span></div></article></div><div data-name="oven-sh/bun incredibly fast javascript runtime, bundler, test runner and package manager javascript runtime zig"><article class="card"><h3><a href="p-gh-oven-sh-bun.html">oven-sh/bun</a></h3><span class="note">Runtime, bundler, test runner and package manager in one.</span><p>Incredibly fast JavaScript runtime, bundler, test runner and package manager</p><div><i class="tg">#javascript</i><i class="tg">#runtime</i><i class="tg">#zig</i></div><div class="meta"><span class="pill star">★ 82.0k</span><span><i class="dot" style="background:#f7a41d"></i>Zig</span><span>Updated 2026-11-12</span></div></article></div></div></div><aside><div class="side-box"><h4>By language</h4><a href="ranking.html?tab=lang">Rust <span style="float:right">4</span></a><a href="ranking.html?tab=lang">Python <span style="float:right">2</span></a><a href="ranking.html?tab=lang">JavaScript <span style="float:right">1</span></a><a href="ranking.html?tab=lang">Go <span style="float:right">1</span></a><a href="ranking.html?tab=lang">TypeScript <span style="float:right">1</span></a><a href="ranking.html?tab=lang">Zig <span style="float:right">1</span></a></div><div class="side-box"><h4>Popular topics</h4><a href="search.html?q=javascript">#javascript <span style="float:right">3</span></a><a href="search.html?q=rust">#rust <span style="float:right">3</span></a><a href="search.html?q=ui">#ui <span style="float:right">2</span></a><a href="search.html?q=python">#python <span style="float:right">2</span></a><a href="search.html?q=cli">#cli <span style="float:right">2</span></a><a href="search.html?q=awesome">#awesome <span style="float:right">2</span></a><a href="search.html?q=list">#list <span style="float:right">2</span></a><a href="search.html?q=frontend">#frontend <span style="float:right">1</span></a><a href="search.html?q=packaging">#packaging <span style="float:right">1</span></a><a href="search.html?q=github">#github <span style="float:right">1</span></a></div><aside class="ad" data-slot="side" hidden><div class="ad-hd"><span>Ad</span></div><div class="ad-v" data-start="2026-12-01T00:00:00Z" data-end="2026-12-31T23:59:00Z" hidden><a href="ranking.html"><h4>December picks</h4><p>Ranked by stars and momentum.</p><span class="ad-cta">Open</span></a></div></aside></aside></div></main><aside class="ad" data-slot="footer"><div class="ad-hd"><span>Ad</span></div><div class="ad-v" data-start="" data-end=""><a href="https://github.com" target="_blank" rel="noopener nofollow sponsored"><h4>All data lives in the repo</h4><p>JSON is the single source of truth.</p><span class="ad-cta">GitHub ↗</span></a></div></aside><footer><div class="wrap"><span>© 2026 OpenPick · Data lives in the repo as JSON · human-reviewed</span><div class="r"><a href="../zh/index.html">简体中文</a><a href="https://github.com/YOUR_NAME/YOUR_REPO" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer><div class="toast" id="toast"></div><script>window.OP_INDEX=[{"full_name": "facebook/react", "description": "A JavaScript library for building user interfaces", "tags": ["javascript", "ui", "frontend", "javascript", "ui"], "category": "Framework", "url": "p-gh-facebook-react.html"}, {"full_name": "astral-sh/uv", "description": "An extremely fast Python package installer and resolver", "tags": ["python", "packaging", "rust", "python", "packaging"], "category": "Tool", "url": "p-gh-astral-sh-uv.html"}, {"full_name": "cli/cli", "description": "GitHub’s official command line tool", "tags": ["cli", "github", "go", "cli", "github"], "category": "Tool", "url": "p-gh-cli-cli.html"}, {"full_name": "vinta/awesome-python", "description": "A curated list of awesome Python frameworks, libraries and software", "tags": ["python", "awesome", "list", "python", "awesome"], "category": "Library", "url": "p-gh-vinta-awesome-python.html"}, {"full_name": "rust-unofficial/awesome-rust", "description": "A curated list of Rust code and resources", "tags": ["rust", "awesome", "list", "rust", "awesome"], "category": "Library", "url": "p-gh-rust-unofficial-awesome-rust.html"}, {"full_name": "shadcn-ui/ui", "description": "Beautifully designed components built with Radix UI and Tailwind CSS", "tags": ["react", "tailwind", "ui", "react", "tailwind"], "category": "Framework", "url": "p-gh-shadcn-ui-ui.html"}, {"full_name": "BurntSushi/ripgrep", "description": "recursively searches directories for a regex pattern", "tags": ["rust", "cli", "search", "rust", "cli"], "category": "Tool", "url": "p-gh-burntsushi-ripgrep.html"}, {"full_name": "huggingface/transformers", "description": "State-of-the-art Machine Learning for PyTorch, TensorFlow and JAX", "tags": ["nlp", "transformers", "ai", "nlp", "transformers"], "category": "AI", "url": "p-gh-huggingface-transformers.html"}, {"full_name": "biomejs/biome", "description": "A toolchain for web projects, aimed to provide functionalities to maintain them", "tags": ["javascript", "linter", "formatter", "javascript", "linter"], "category": "Tool", "url": "p-gh-biomejs-biome.html"}, {"full_name": "oven-sh/bun", "description": "Incredibly fast JavaScript runtime, bundler, test runner and package manager", "tags": ["javascript", "runtime", "zig", "javascript", "runtime"], "category": "Framework", "url": "p-gh-oven-sh-bun.html"}];window.OP_NO_RESULT="No results";</script><script>(function(){
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return [].slice.call(document.querySelectorAll(s))};
+function toast(m){var x=$('#toast');if(!x)return;x.textContent=m;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(function(){x.classList.remove('on')},1900)}
+/* 主题 */
+function setTheme(v){document.documentElement.dataset.theme=v;try{localStorage.setItem('op-theme',v)}catch(e){}
+ var b=$('#themeBtn');if(b)b.textContent=v==='dark'?'☀':'☾';
+ // Waline 由 dark:'html[data-theme="dark"]' 自动跟随，不需要手动同步
+}
+var tb=$('#themeBtn');if(tb)tb.onclick=function(){setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')};
+try{var v=localStorage.getItem('op-theme');if(v)setTheme(v)}catch(e){}
+/* 搜索（索引内联，离线可用） */
+var IDX=window.OP_INDEX||[];
+function score(it,q){var n=(it.full_name||'').toLowerCase(),d=(it.description||'').toLowerCase(),g=(it.tags||[]).join(' ').toLowerCase(),c=(it.category||'').toLowerCase();
+ var parts=q.toLowerCase().split(/\s+/).filter(Boolean),s=0;
+ for(var i=0;i<parts.length;i++){var p=parts[i],hit=0;
+  if(n.indexOf(p)===0)hit+=12;else if(n.indexOf(p)>=0)hit+=9;
+  if(g.indexOf(p)>=0)hit+=7;if(d.indexOf(p)>=0)hit+=3;if(c.indexOf(p)>=0)hit+=2;
+  if(!hit)return 0;s+=hit}
+ return s}
+function render(q,box){if(!box)return;if(!q.trim()){box.classList.remove('on');box.innerHTML='';return}
+ var out=IDX.map(function(it){return{it:it,s:score(it,q)}}).filter(function(x){return x.s>0}).sort(function(a,b){return b.s-a.s}).slice(0,8);
+ box.innerHTML=out.length?out.map(function(x){return '<a href="'+x.it.url+'"><b>'+x.it.full_name+'</b><span>'+(x.it.description||'')+'</span></a>'}).join('')
+  :'<a><b>—</b><span>'+(window.OP_NO_RESULT||'No result')+'</span></a>';
+ box.classList.add('on')}
+$$('.srch input').forEach(function(inp){var box=inp.parentNode.querySelector('.pop');
+ inp.addEventListener('input',function(){render(inp.value,box)});
+ inp.addEventListener('focus',function(){if(inp.value)render(inp.value,box)});
+ inp.addEventListener('keydown',function(e){if(e.key==='Escape'){box.classList.remove('on');inp.blur()}
+  if(e.key==='Enter'){var a=box.querySelector('a[href]');if(a)location.href=a.getAttribute('href')}})});
+document.addEventListener('click',function(e){$$('.srch .pop').forEach(function(p){if(!p.parentNode.contains(e.target))p.classList.remove('on')})});
+document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();var i=$('.srch input');if(i){i.focus();i.select()}}});
+/* 榜单 Tab */
+$$('.tabs button').forEach(function(b){b.onclick=function(){$$('.tabs button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+ $$('[data-tab]').forEach(function(g){g.style.display=g.dataset.tab===b.dataset.tab?'':'none'});
+ try{var u=new URL(location.href);u.searchParams.set('tab',b.dataset.tab);history.replaceState(null,'',u.toString())}catch(e){}}});
+var q=new URLSearchParams(location.search).get('tab');if(q){var b=$('.tabs button[data-tab="'+q+'"]');if(b)b.click()}
+/* README 双语切换：切整个 clip 容器，折叠状态各自保留 */
+$$('#rmSeg button').forEach(function(b){b.onclick=function(){$$('#rmSeg button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+ var alt=b.dataset.rm==='alt',m=$('#clip-mdBody'),a=$('#clip-mdBodyAlt'),toc=$('#rmToc');
+ if(m)m.style.display=alt?'none':'';if(a)a.style.display=alt?'':'none';if(toc)toc.style.display=alt?'none':''}});
+/* 下载通道：切换即改写 href，零网络请求；data-official 永远是官方直链 */
+var px=$('#pxSel');if(px){var applyPx=function(){var pre=px.value;$$('.dl-link').forEach(function(a){
+ var o=a.getAttribute('data-official');if(o)a.href=pre?pre+o:o})};px.onchange=applyPx;applyPx()}
+/* README 图片：代理失败自动回退原图；原图也失败则整张隐藏，不显示破图 alt */
+$$('.md-img').forEach(function(im){im.addEventListener('error',function(){
+ var o=im.getAttribute('data-orig');
+ if(o&&im.src!==o){im.src=o;im.removeAttribute('data-orig')}
+ else{im.style.display='none'}})});
+/* 广告排期：到点自动上/下线（构建期已过滤，这里只做二次校验） */
+function adsTick(){var now=Date.now();$$('.ad').forEach(function(el){var vs=[].slice.call(el.querySelectorAll('.ad-v'));if(!vs.length)return;
+ var live=vs.filter(function(v){var s=v.dataset.start?Date.parse(v.dataset.start):0,e=v.dataset.end?Date.parse(v.dataset.end):0;
+  return (!s||s<=now)&&(!e||e>=now)});
+ el.hidden=live.length===0;vs.forEach(function(v){v.hidden=live.indexOf(v)<0})})}
+adsTick();setInterval(adsTick,60000);
+/* Waline 懒加载：点按钮才注入 CSS + ES module，未点前访客侧 0 外部请求 */
+var wl=$('#wLoad');if(wl&&window.OP_WALINE){wl.onclick=function(){
+ var c=window.OP_WALINE;
+ var l=document.createElement('link');l.rel='stylesheet';l.href=c.css;document.head.appendChild(l);
+ var s=document.createElement('script');s.type='module';
+ s.textContent='import { init } from '+JSON.stringify(c.js)+'; init('+JSON.stringify(c.options)+');';
+ document.body.appendChild(s);wl.remove()}}
+/* 长 README 折叠：默认收起，点按钮展开；两个语言版本互不干扰 */
+$$('.rm-more button').forEach(function(b){b.onclick=function(){
+ var wrap=b.closest('.md-clip'),on=wrap.classList.toggle('collapsed');
+ b.textContent=on?(b.dataset.more||'展开全文'):(b.dataset.less||'收起');
+ if(on)wrap.scrollIntoView({behavior:'smooth',block:'start'})}});
+/* README 目录滚动高亮 */
+var toc=$$('.toc a');if(toc.length){var heads=toc.map(function(a){var id=a.getAttribute('href').slice(1);return document.getElementById(id)}).filter(Boolean);
+ var tick=function(){var y=window.scrollY+110,cur=0;
+  heads.forEach(function(h,k){if(h.getBoundingClientRect().top+window.scrollY<=y)cur=k});
+  toc.forEach(function(a,k){a.classList.toggle('on',k===cur)})};
+ window.addEventListener('scroll',tick,{passive:true});tick()}
+/* 复制 */
+document.addEventListener('click',function(e){var c=e.target.closest('[data-copy]');if(c){try{navigator.clipboard.writeText(c.dataset.copy);toast('✓')}catch(x){}}});
+window.OP_toast=toast;
+})();</script><script>(function(){var b=document.getElementById("bigSearch");if(!b)return;b.addEventListener("input",function(){var q=b.value.trim().toLowerCase();document.querySelectorAll("#cards > div").forEach(function(d){d.style.display=(!q||d.dataset.name.indexOf(q)>=0)?"":"none"})});var p=new URLSearchParams(location.search).get("q");if(p){b.value=p;b.dispatchEvent(new Event("input"))}})();</script></body></html>
