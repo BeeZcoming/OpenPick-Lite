@@ -1,0 +1,116 @@
+{
+  "_note": "enabled 是全站总开关；slots 里每个位置独立开关；campaigns 是创意（增删改 / 起止时间 / 优先级）。后台「广告」页全部可视化操作。",
+  "enabled": true,
+  "slots": [
+    {
+      "id": "home_top",
+      "name": "顶部横幅（首页/榜单/搜索/投稿）",
+      "enabled": true
+    },
+    {
+      "id": "side",
+      "name": "右栏方卡（全站）",
+      "enabled": true
+    },
+    {
+      "id": "detail_end",
+      "name": "详情页末尾（README/下载区后）",
+      "enabled": true
+    },
+    {
+      "id": "footer",
+      "name": "页脚上方（全站）",
+      "enabled": true
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "c_demo_1",
+      "slot": "home_top",
+      "enabled": true,
+      "start_at": "",
+      "end_at": "",
+      "priority": 2,
+      "url": "https://github.com",
+      "note": "示例，上线前替换",
+      "i18n": {
+        "zh": {
+          "title": "发现值得收藏的开源项目",
+          "text": "每日多源采集，人工审核后收录。",
+          "cta": "看看榜单"
+        },
+        "en": {
+          "title": "Discover projects worth keeping",
+          "text": "Collected daily, reviewed by humans.",
+          "cta": "See rankings"
+        }
+      }
+    },
+    {
+      "id": "c_demo_2",
+      "slot": "side",
+      "enabled": true,
+      "start_at": "2026-12-01T00:00:00Z",
+      "end_at": "2026-12-31T23:59:00Z",
+      "priority": 1,
+      "url": "ranking.html",
+      "note": "带在线时间窗；到期自动下线",
+      "i18n": {
+        "zh": {
+          "title": "十二月精选",
+          "text": "按星标与增速排出的月度榜单。",
+          "cta": "查看"
+        },
+        "en": {
+          "title": "December picks",
+          "text": "Ranked by stars and momentum.",
+          "cta": "Open"
+        }
+      }
+    },
+    {
+      "id": "c_demo_3",
+      "slot": "detail_end",
+      "enabled": true,
+      "start_at": "",
+      "end_at": "",
+      "priority": 1,
+      "url": "submit.html",
+      "note": "",
+      "i18n": {
+        "zh": {
+          "title": "也推荐一个项目？",
+          "text": "提交后进入人工审核队列。",
+          "cta": "去提交"
+        },
+        "en": {
+          "title": "Know a good project?",
+          "text": "Submissions go to human review.",
+          "cta": "Submit"
+        }
+      }
+    },
+    {
+      "id": "c_demo_4",
+      "slot": "footer",
+      "enabled": true,
+      "start_at": "",
+      "end_at": "",
+      "priority": 1,
+      "url": "https://github.com",
+      "note": "",
+      "i18n": {
+        "zh": {
+          "title": "数据全部开源在仓库",
+          "text": "JSON 是唯一真相源，可复算、可回滚。",
+          "cta": "GitHub ↗"
+        },
+        "en": {
+          "title": "All data lives in the repo",
+          "text": "JSON is the single source of truth.",
+          "cta": "GitHub ↗"
+        }
+      }
+    }
+  ]
+}

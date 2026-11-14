@@ -1,0 +1,15 @@
+{
+  "_note": "评论 + 点赞走 Waline。默认关闭；在管端「系统设置」填 serverURL 并启用即可。这里只放公开值，服务端密钥绝不入库。",
+  "enabled": false,
+  "serverURL": "",
+  "reaction": true,
+  "pageSize": 10,
+  "wordLimit": 0,
+  "login": "enable",
+  "turnstile_sitekey": "",
+  "client_js": "https://unpkg.com/@waline/client@v3/dist/waline.js",
+  "client_css": "https://unpkg.com/@waline/client@v3/dist/waline.css",
+  "emoji": [
+    "https://unpkg.com/@waline/emojis@1.1.0/weibo"
+  ]
+}

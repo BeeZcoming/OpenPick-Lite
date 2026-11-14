@@ -1,0 +1,17 @@
+{
+  "_note": "上线前改 site_url / submit_repo；其余按需。详见 DEPLOY.md 第 5 步。",
+  "site_name": "OpenPick",
+  "site_url": "https://YOUR_DOMAIN",
+  "submit_repo": "YOUR_NAME/YOUR_REPO",
+  "default_lang": "zh",
+  "default_theme": "light",
+  "per_page": 24,
+  "ranking_limit": 20,
+  "submit": {
+    "_note": "边缘函数只用 Cloudflare。endpoint 留空=同源 /api/submit（站点在 Cloudflare Pages 时）；跨平台填绝对地址。敏感值只放 Cloudflare Secret。",
+    "mode": "auto",
+    "endpoint": "",
+    "submit_key": "",
+    "turnstile_sitekey": ""
+  }
+}

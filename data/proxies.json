@@ -1,0 +1,42 @@
+{
+  "_note": "下载通道镜像 + README 图片白名单。后台「加速代理」页签可视化管理。prefix 直接拼在官方直链前面（适用于 ghproxy / ghfast 一类镜像）；官方直连不可删除。",
+  "enabled": true,
+  "default": "official",
+  "channels": [
+    {
+      "id": "official",
+      "name": "官方直连",
+      "prefix": "",
+      "enabled": true,
+      "builtin": true
+    },
+    {
+      "id": "ghproxy",
+      "name": "GHProxy 镜像",
+      "prefix": "https://ghproxy.net/",
+      "enabled": true
+    },
+    {
+      "id": "ghfast",
+      "name": "GHFast 镜像",
+      "prefix": "https://ghfast.top/",
+      "enabled": true
+    }
+  ],
+  "readme": {
+    "_note": "README 正文在构建期抓取并渲染进 HTML，运行时零请求。图片只在白名单域名内渲染；配了 image_proxy 才走代理，加载失败自动回退原图。",
+    "image_proxy": "",
+    "whitelist": [
+      "raw.githubusercontent.com",
+      "github.com",
+      "user-images.githubusercontent.com",
+      "cdn.jsdelivr.net",
+      "raw.gitmirror.com",
+      "gitee.com",
+      "img.shields.io",
+      "badge.fury.io"
+    ],
+    "timeout": 8,
+    "max_bytes": 200000
+  }
+}

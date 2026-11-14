@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-11-14T01:17:00Z",
+  "count": 3,
+  "items": [
+    {
+      "full_name": "temporalio/temporal",
+      "description": "Durable execution platform for reliable microservices",
+      "stars": 16200,
+      "language": "Go",
+      "topics": [
+        "workflow",
+        "microservices"
+      ],
+      "pushed_at": "2026-11-13T09:20:00Z",
+      "archived": false,
+      "sources": [
+        "trending:daily",
+        "search:newly_hot"
+      ],
+      "release": null
+    },
+    {
+      "full_name": "zed-industries/zed",
+      "description": "Code at the speed of thought – a high-performance, multiplayer code editor",
+      "stars": 68000,
+      "language": "Rust",
+      "topics": [
+        "editor",
+        "rust"
+      ],
+      "pushed_at": "2026-11-14T02:10:00Z",
+      "archived": false,
+      "sources": [
+        "search:ai_tools"
+      ],
+      "release": null,
+      "suggested_reason": "多人协作编辑器里少见的原生性能，Rust 写的，值得收录。",
+      "suggested_by": "contributor"
+    },
+    {
+      "full_name": "e2b-dev/infra",
+      "description": "Open-source infrastructure for AI code execution sandboxes",
+      "stars": 8900,
+      "language": "Go",
+      "topics": [
+        "ai",
+        "sandbox"
+      ],
+      "pushed_at": "2026-11-12T14:00:00Z",
+      "archived": false,
+      "sources": [
+        "awesome:awesome-python",
+        "community:issue#42"
+      ],
+      "release": null
+    }
+  ]
+}

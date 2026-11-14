@@ -1,0 +1,342 @@
+{
+  "count": 10,
+  "items": [
+    {
+      "resource_id": "gh-facebook-react",
+      "full_name": "facebook/react",
+      "name": "react",
+      "description": "A JavaScript library for building user interfaces",
+      "description_zh": "A JavaScript library for building user interfaces",
+      "stars": 182000,
+      "language": "JavaScript",
+      "topics": [
+        "javascript",
+        "ui",
+        "frontend"
+      ],
+      "pushed_at": "2026-11-14T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "trending:daily"
+      ],
+      "editor_note": "Web 前端事实标准，组件化心智模型的源头。",
+      "editor_note_en": "The library that made component-based UI the default.",
+      "category": "框架",
+      "category_en": "Framework",
+      "difficulty": "beginner",
+      "tags": [
+        "javascript",
+        "ui"
+      ],
+      "featured": true,
+      "accepted_at": "2026-11-01T10:00:00Z",
+      "accepted_by": "admin",
+      "release": {
+        "version": "v19.0.0",
+        "published_at": "2026-10-28",
+        "url": "https://github.com/facebook/react/releases/tag/v19.0.0",
+        "base": "https://github.com/facebook/react/releases/download/v19.0.0/",
+        "assets": [
+          {
+            "file": "react-v19.0.0.tar.gz",
+            "size": "1.8 MB",
+            "downloads": 12450
+          },
+          {
+            "file": "react-dom-v19.0.0.tar.gz",
+            "size": "2.1 MB",
+            "downloads": 9830
+          }
+        ]
+      }
+    },
+    {
+      "resource_id": "gh-astral-sh-uv",
+      "full_name": "astral-sh/uv",
+      "name": "uv",
+      "description": "An extremely fast Python package installer and resolver",
+      "description_zh": "An extremely fast Python package installer and resolver",
+      "stars": 42000,
+      "language": "Rust",
+      "topics": [
+        "python",
+        "packaging",
+        "rust"
+      ],
+      "pushed_at": "2026-11-13T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "search:newly_hot"
+      ],
+      "editor_note": "把 Python 依赖安装从几十秒压到一秒内，几乎无损替换 pip。",
+      "editor_note_en": "Python packaging at Rust speed — a near drop-in pip replacement.",
+      "category": "工具",
+      "category_en": "Tool",
+      "difficulty": "beginner",
+      "tags": [
+        "python",
+        "packaging"
+      ],
+      "featured": true,
+      "accepted_at": "2026-11-02T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-cli-cli",
+      "full_name": "cli/cli",
+      "name": "cli",
+      "description": "GitHub’s official command line tool",
+      "description_zh": "GitHub’s official command line tool",
+      "stars": 38000,
+      "language": "Go",
+      "topics": [
+        "cli",
+        "github",
+        "go"
+      ],
+      "pushed_at": "2026-11-12T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "awesome:awesome-python"
+      ],
+      "editor_note": "不用开浏览器就能管 Issue、PR 和 Release。",
+      "editor_note_en": "Issues, PRs and releases without leaving the terminal.",
+      "category": "工具",
+      "category_en": "Tool",
+      "difficulty": "beginner",
+      "tags": [
+        "cli",
+        "github"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-03T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-vinta-awesome-python",
+      "full_name": "vinta/awesome-python",
+      "name": "awesome-python",
+      "description": "A curated list of awesome Python frameworks, libraries and software",
+      "description_zh": "A curated list of awesome Python frameworks, libraries and software",
+      "stars": 140000,
+      "language": "Python",
+      "topics": [
+        "python",
+        "awesome",
+        "list"
+      ],
+      "pushed_at": "2026-11-11T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "trending:daily"
+      ],
+      "editor_note": "Python 生态最全的索引，找库先翻它。",
+      "editor_note_en": "The most complete index of the Python ecosystem.",
+      "category": "类库",
+      "category_en": "Library",
+      "difficulty": "beginner",
+      "tags": [
+        "python",
+        "awesome"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-04T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-rust-unofficial-awesome-rust",
+      "full_name": "rust-unofficial/awesome-rust",
+      "name": "awesome-rust",
+      "description": "A curated list of Rust code and resources",
+      "description_zh": "A curated list of Rust code and resources",
+      "stars": 52000,
+      "language": "Rust",
+      "topics": [
+        "rust",
+        "awesome",
+        "list"
+      ],
+      "pushed_at": "2026-11-10T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "search:newly_hot"
+      ],
+      "editor_note": "Rust 入门与选型的首选清单。",
+      "editor_note_en": "The go-to list for Rust crates and learning resources.",
+      "category": "类库",
+      "category_en": "Library",
+      "difficulty": "beginner",
+      "tags": [
+        "rust",
+        "awesome"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-05T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-shadcn-ui-ui",
+      "full_name": "shadcn-ui/ui",
+      "name": "ui",
+      "description": "Beautifully designed components built with Radix UI and Tailwind CSS",
+      "description_zh": "Beautifully designed components built with Radix UI and Tailwind CSS",
+      "stars": 78000,
+      "language": "TypeScript",
+      "topics": [
+        "react",
+        "tailwind",
+        "ui"
+      ],
+      "pushed_at": "2026-11-09T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "awesome:awesome-python"
+      ],
+      "editor_note": "不是依赖，是可以直接复制进项目里改的组件源码。",
+      "editor_note_en": "Copy-paste component source you actually own.",
+      "category": "框架",
+      "category_en": "Framework",
+      "difficulty": "intermediate",
+      "tags": [
+        "react",
+        "tailwind"
+      ],
+      "featured": true,
+      "accepted_at": "2026-11-06T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-burntsushi-ripgrep",
+      "full_name": "BurntSushi/ripgrep",
+      "name": "ripgrep",
+      "description": "recursively searches directories for a regex pattern",
+      "description_zh": "recursively searches directories for a regex pattern",
+      "stars": 51000,
+      "language": "Rust",
+      "topics": [
+        "rust",
+        "cli",
+        "search"
+      ],
+      "pushed_at": "2026-11-08T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "trending:daily"
+      ],
+      "editor_note": " grep 的现代替代，快到会改变你查代码的习惯。",
+      "editor_note_en": "A grep replacement fast enough to change your habits.",
+      "category": "工具",
+      "category_en": "Tool",
+      "difficulty": "beginner",
+      "tags": [
+        "rust",
+        "cli"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-07T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-huggingface-transformers",
+      "full_name": "huggingface/transformers",
+      "name": "transformers",
+      "description": "State-of-the-art Machine Learning for PyTorch, TensorFlow and JAX",
+      "description_zh": "State-of-the-art Machine Learning for PyTorch, TensorFlow and JAX",
+      "stars": 145000,
+      "language": "Python",
+      "topics": [
+        "nlp",
+        "transformers",
+        "ai"
+      ],
+      "pushed_at": "2026-11-14T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "search:newly_hot"
+      ],
+      "editor_note": "几乎所有开源模型的默认加载入口。",
+      "editor_note_en": "The default entry point for nearly every open model.",
+      "category": "AI",
+      "category_en": "AI",
+      "difficulty": "intermediate",
+      "tags": [
+        "nlp",
+        "transformers"
+      ],
+      "featured": true,
+      "accepted_at": "2026-11-08T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-biomejs-biome",
+      "full_name": "biomejs/biome",
+      "name": "biome",
+      "description": "A toolchain for web projects, aimed to provide functionalities to maintain them",
+      "description_zh": "A toolchain for web projects, aimed to provide functionalities to maintain them",
+      "stars": 18000,
+      "language": "Rust",
+      "topics": [
+        "javascript",
+        "linter",
+        "formatter"
+      ],
+      "pushed_at": "2026-11-13T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "awesome:awesome-python"
+      ],
+      "editor_note": "一个二进制同时替掉 ESLint 和 Prettier。",
+      "editor_note_en": "One binary replacing both ESLint and Prettier.",
+      "category": "工具",
+      "category_en": "Tool",
+      "difficulty": "beginner",
+      "tags": [
+        "javascript",
+        "linter"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-09T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    },
+    {
+      "resource_id": "gh-oven-sh-bun",
+      "full_name": "oven-sh/bun",
+      "name": "bun",
+      "description": "Incredibly fast JavaScript runtime, bundler, test runner and package manager",
+      "description_zh": "Incredibly fast JavaScript runtime, bundler, test runner and package manager",
+      "stars": 82000,
+      "language": "Zig",
+      "topics": [
+        "javascript",
+        "runtime",
+        "zig"
+      ],
+      "pushed_at": "2026-11-12T08:00:00Z",
+      "archived": false,
+      "sources": [
+        "trending:daily"
+      ],
+      "editor_note": "运行时、打包、测试、包管理四合一。",
+      "editor_note_en": "Runtime, bundler, test runner and package manager in one.",
+      "category": "框架",
+      "category_en": "Framework",
+      "difficulty": "intermediate",
+      "tags": [
+        "javascript",
+        "runtime"
+      ],
+      "featured": false,
+      "accepted_at": "2026-11-10T10:00:00Z",
+      "accepted_by": "admin",
+      "release": null
+    }
+  ]
+}
