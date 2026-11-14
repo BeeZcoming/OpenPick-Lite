@@ -1,0 +1,32 @@
+name: 提交开源项目
+description: 推荐值得收录的项目，机器人会自动补元数据并进入人工审核队列
+title: "提交项目："
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        填写后 GitHub Actions 会自动把项目加入 `data/incoming.json`，管理员在管端审核。
+        **仓库请用反引号包起来**，例如 `facebook/react`。
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub 仓库
+      description: 格式 owner/repo，用反引号包裹
+      placeholder: "`facebook/react`"
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 推荐理由
+      description: 至少 10 个字。解决了什么问题？适合谁用？审核主要看这一栏。
+    validations:
+      required: true
+  - type: dropdown
+    id: cat
+    attributes:
+      label: 分类
+      options: [Tool / 工具, Framework / 框架, AI, Library / 类库, Other / 其他]
+    validations:
+      required: true
