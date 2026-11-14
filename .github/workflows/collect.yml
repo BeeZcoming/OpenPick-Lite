@@ -1,0 +1,70 @@
+name: Collect & Ingest
+
+on:
+  schedule:
+    - cron: '17 1 * * *'          # 每日 UTC 01:17（北京时间 09:17）
+  workflow_dispatch:
+  issues:
+    types: [opened]
+
+# 只写 data/，不给任何其它权限
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: openpick-data
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 定时 / 手动：三源采集
+      - name: Collect
+        if: github.event_name != 'issues'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 src/collect.py collect
+
+      # Issue 投稿：解析并入库（只处理带 submission 标签的）
+      - name: Save issue payload
+        if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'submission')
+        env:
+          ISSUE_JSON: ${{ toJSON(github.event.issue) }}
+        run: printf '%s' "$ISSUE_JSON" > /tmp/issue.json
+
+      - name: Ingest
+        if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'submission')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 src/collect.py ingest /tmp/issue.json
+
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/incoming.json data/seen.json
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "data: update $(date -u +%F) [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase -q origin "${GITHUB_REF_NAME}" || true
+            if git push; then
+              echo "✅ 已推送"
+              exit 0
+            fi
+            echo "第 $i 次推送失败（多为并发写入），5 秒后重试"
+            sleep 5
+          done
+          echo "::error::三次推送均失败，请检查分支保护或 Actions 写权限"
+          exit 1
