@@ -1,0 +1,41 @@
+# OpenPick Lite · 宝塔「网站 → 设置 → 配置文件」整段替换
+# 一个域名同时承载前台静态站与 /admin/ 管端，不需要第二个站点。
+# 配好后在宝塔「SSL」页申请证书并开启强制 HTTPS。
+
+server {
+    listen 80;
+    server_name YOUR_DOMAIN;
+    root /www/wwwroot/openpick-lite/public;
+    index index.html;
+
+    # ---- 管端：/admin/ 走 PHP ----
+    location ^~ /admin/ {
+        alias /www/wwwroot/openpick-lite/admin/;
+        index index.php;
+        location ~ \.php$ {
+            fastcgi_pass  unix:/tmp/php-cgi-83.sock;   # 按实际 PHP 版本调整
+            fastcgi_index index.php;
+            include       fastcgi.conf;
+            fastcgi_param SCRIPT_FILENAME $request_filename;
+        }
+    }
+
+    # ---- 安全：仓库根目录下除 public/ 外一律不许 Web 访问 ----
+    # 因为 root 已指向 public/，data/、config.php、src/ 天然在 Web 根之外；
+    # 下面这层是额外兜底，防止误改 root 后泄露。
+    location ~ \.(php|json|md|py)$ { return 404; }
+    location ~ /\.(git|env) { return 404; }
+
+    # ---- 静态缓存 ----
+    location ~* \.(css|js|png|jpg|svg|woff2?|json|xml)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+    location ~* \.html$ { add_header Cache-Control "no-cache"; }
+
+    # ---- 管端建议加 IP 白名单（把 1.2.3.4 换成你的办公 IP）----
+    # location ^~ /admin/ { allow 1.2.3.4; allow 127.0.0.1; deny all; ... }
+
+    access_log /www/wwwlogs/openpick.access.log;
+    error_log  /www/wwwlogs/openpick.error.log;
+}
